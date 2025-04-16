@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for canyonchat-router
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "canyonchat-router"
+primary_region = "ams"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+
+[build]
+  dockerfile = "Dockerfile" # Assumes Dockerfile uses node base image
+
+[http_service]
+  internal_port = 8080 # Matches the port in server.js
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1 # Can scale to 0 if desired, or set to 1 for always-on
+  processes = ["app"]
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256

@@ -1,0 +1,14 @@
+{
+  "name": "fly-io-proxy",
+  "version": "1.0.0",
+  "description": "Fly.io reverse proxy using fly-replay",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  }
+}
